@@ -7,6 +7,7 @@ import com.yash.authService.dto.Loginrequest;
 import com.yash.authService.dto.SignupRequest;
 import com.yash.authService.entity.User;
 import com.yash.authService.enums.Role;
+import com.yash.authService.exception.EmailAlreadyExistsException;
 import com.yash.authService.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,7 +28,7 @@ public class AuthService {
 
     public ApiResponse<?> signup(SignupRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            return new ApiResponse<>("Failure", "Email already in use", null);
+            throw new EmailAlreadyExistsException("Email already in use: " + request.getEmail());
         }
 
         User user = User.builder()
