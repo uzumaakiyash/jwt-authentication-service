@@ -3,7 +3,7 @@ package com.yash.authService.service;
 import com.yash.authService.config.JwtService;
 import com.yash.authService.dto.ApiResponse;
 import com.yash.authService.dto.AuthResponse;
-import com.yash.authService.dto.Loginrequest;
+import com.yash.authService.dto.LoginRequest;
 import com.yash.authService.dto.SignupRequest;
 import com.yash.authService.entity.User;
 import com.yash.authService.enums.Role;
@@ -43,7 +43,7 @@ public class AuthService {
 
     }
 
-    public ApiResponse<AuthResponse> login(Loginrequest request) {
+    public ApiResponse<AuthResponse> login(LoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );

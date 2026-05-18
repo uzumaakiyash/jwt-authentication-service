@@ -37,6 +37,20 @@ src/main/java/com/yash/authservice
 └── util
 ```
 
+### Authentication APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/auth/signup | Register new user |
+| POST | /api/auth/login | Authenticate user |
+
+### Protected APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/user/profile | User protected endpoint |
+| GET | /api/admin/dashboard | Admin protected endpoint |
+
 ### Run Application
 
 ```bash

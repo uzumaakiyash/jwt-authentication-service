@@ -2,7 +2,7 @@ package com.yash.authService.controller;
 
 import com.yash.authService.dto.ApiResponse;
 import com.yash.authService.dto.AuthResponse;
-import com.yash.authService.dto.Loginrequest;
+import com.yash.authService.dto.LoginRequest;
 import com.yash.authService.dto.SignupRequest;
 import com.yash.authService.service.AuthService;
 import org.junit.jupiter.api.Assertions;
@@ -46,11 +46,11 @@ class AuthControllerTest {
 
     @Test
     void loginTest() {
-        Loginrequest request = new Loginrequest("yash@gmail.com", "yash123");
+        LoginRequest request = new LoginRequest("yash@gmail.com", "yash123");
         AuthResponse authResponse = new AuthResponse("Yash uzumaki", "yash@gmail.com", "ROLE_USER", "jwt-token-123");
         ApiResponse<AuthResponse> mockResponse = new ApiResponse<>("Success", "Login successful", authResponse);
 
-        doReturn(mockResponse).when(authService).login(any(Loginrequest.class));
+        doReturn(mockResponse).when(authService).login(any(LoginRequest.class));
 
         ResponseEntity<ApiResponse<AuthResponse>> result = authController.login(request);
 
