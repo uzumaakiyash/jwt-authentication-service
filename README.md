@@ -57,6 +57,26 @@ src/main/java/com/yash/authservice
 mvn spring-boot:run
 ```
 
+## Code Quality & Coverage
+
+This project integrates with SonarQube and JaCoCo for static code analysis and test coverage reporting.
+
+### Run SonarQube Analysis
+
+Make sure SonarQube is running locally on port `9000`.
+
+Run the following command:
+
+```bash
+mvn clean verify sonar:sonar "-Dsonar.token=YOUR_TOKEN"
+```
+
+### SonarQube Dashboard
+
+```text
+http://localhost:9000
+```
+
 ## Future Enhancements
 
 - Refresh Token Support
@@ -67,4 +87,4 @@ mvn spring-boot:run
 
 ## Author
 
-Yashvanth
+Yashvanth Muralidaran
